@@ -42,8 +42,9 @@ export const addRemoveFriend = async (req, res) => {
 		} else {
 			user.friends.push(friendId);
 			friend.friends.push(id);
+			console.log(user.friends);
 		}
-		await User.save();
+		await user.save();
 		await friend.save();
 
 		const friends = await Promise.all(
